@@ -1,0 +1,36 @@
+# Ignore secrets, logs, keys, credentials, and state files
+*.env
+*.env.*
+*.key
+*.pem
+*.cert
+*.crt
+*.pfx
+*.db
+*.dat
+*.log
+*.sqlite
+*.sqlite3
+*.session
+credentials*
+*secret*
+*token*
+*password*
+*.bak
+*.bak.*
+*.swp
+*~
+.DS_Store
+
+# State & caches
+.local/
+cache/
+Cache/
+GPUCache/
+Dawn*Cache/
+Session Storage/
+Cookies*
+TransportSecurity
+Preferences
+Local State
+Network Persistent State
