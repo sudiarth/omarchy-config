@@ -1,17 +1,26 @@
 return {
   {
     "ficcdaf/ashen.nvim",
-    after = function()
-      local function override_pmenu()
-        local bg = "#e8ebee"
-        vim.api.nvim_set_hl(0, "Pmenu", { fg = "#2c3135", bg = bg })
-        vim.api.nvim_set_hl(0, "PmenuSel", { fg = "#2c3135", bg = "#d0d7dc" })
-        vim.api.nvim_set_hl(0, "PmenuSbar", { bg = bg })
-        vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#d0d7dc" })
-      end
-      override_pmenu()
+    init = function()
       vim.api.nvim_create_autocmd("ColorScheme", {
-        callback = override_pmenu,
+        pattern = "*",
+        callback = function()
+          if vim.g.colors_name ~= "ashen" then
+            return
+          end
+          local bg = "#e8ebee"
+          local fg = "#2c3135"
+          local sel = "#d0d7dc"
+          vim.api.nvim_set_hl(0, "Pmenu", { fg = fg, bg = bg })
+          vim.api.nvim_set_hl(0, "PmenuSel", { fg = fg, bg = sel })
+          vim.api.nvim_set_hl(0, "PmenuSbar", { bg = bg })
+          vim.api.nvim_set_hl(0, "PmenuThumb", { bg = sel })
+          vim.api.nvim_set_hl(0, "NormalFloat", { fg = fg, bg = bg })
+          vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#8a9199", bg = bg })
+          vim.api.nvim_set_hl(0, "FloatTitle", { fg = fg, bg = bg })
+          vim.api.nvim_set_hl(0, "NoicePopup", { fg = fg, bg = bg })
+          vim.api.nvim_set_hl(0, "NoicePopupBorder", { fg = "#8a9199", bg = bg })
+        end,
       })
     end,
   },
