@@ -6,4 +6,7 @@ hl.config({
     gaps_out = 10,
     border_size = 5,
   },
+  decoration = {
+    rounding = 10,
+  },
 })
